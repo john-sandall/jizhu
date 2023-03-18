@@ -2,14 +2,16 @@
 **/.ipynb_checkpoints/*
 **/__pycache__/*
 *.pyc
+.cache/
 
 # Data
-./data/
+data/
 !**/data/**/README.md
 !**/data/**/*.gitkeep
 
 # Secrets
 .env
+glass*.json
 
 # Personal TODO files
 TODO.txt

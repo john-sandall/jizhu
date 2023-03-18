@@ -17,13 +17,18 @@ packages = [
 [tool.poetry.dependencies]
 python = ">=3.11.2,<3.12"
 # Everything below here is alphabetically sorted
+genanki = "^0.13.0"
+google-cloud-translate = "^3.11.0"
 ipykernel = "^6.21.3"
 joblib = "^1.2.0"
 jupyterlab = "^3.6.1"
 loguru = "^0.6.0"
 numpy = "^1.24.2"
+openpyxl = "^3.1.1"
 pandas = "^1.5.3"
+pypinyin = "^0.48.0"
 scipy = "^1.10.1"
+typer = "^0.7.0"
 
 [tool.poetry.dev-dependencies]
 # Everything below here is alphabetically sorted
@@ -45,6 +50,7 @@ flake8-return = "^1.2.0"
 ipdb = "^0.13.11"
 isort = "^5.12.0"
 jupyter-black = "^0.3.3"
+mypy = "^1.1.1"
 pip-audit = "^2.4.14"
 pre-commit = "^3.1.1"
 pylint = "^2.17.0"
@@ -83,8 +89,8 @@ min-similarity-lines = 150
 max-statements = 89
 max-args = 22
 max-branches = 17
-# good-names = []
-# disable = []
+good-names = ['df', 'i', 'py']
+disable = ['missing-function-docstring']
 logging-format-style = "new"
 
 ##############
