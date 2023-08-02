@@ -13,7 +13,7 @@
   - **coverage:** `coverage run -m pytest` or `coverage html`
   - **poetry sync:** `poetry install --no-root --sync`
   - **updating requirements:** see [docs/updating_requirements.md](docs/updating_requirements.md)
-- **create towncrier entry:** `towncrier create 123.added --edit`
+  - **create towncrier entry:** `towncrier create 123.added --edit`
 
 
 ## Initial project setup
@@ -27,3 +27,9 @@
    file using [detect-secrets](https://github.com/Yelp/detect-secrets).
 5. See [docs/using_towncrier.md](docs/using_towncrier.md) for how to update the `CHANGELOG.md`
    using [towncrier](https://github.com/twisted/towncrier).
+
+
+## Useful links
+
+- [How to Type Pinyin with Tone Marks on Windows and Mac OS](https://yoyochinese.com/blog/how-to-type-pinyin-mandarin-chinese-tone-marks-windows-mac-os)
+- [Google Translate](https://translate.google.com/?sl=zh-CN&tl=en)
