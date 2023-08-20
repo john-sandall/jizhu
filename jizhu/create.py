@@ -67,12 +67,23 @@ def make_notes(hanzi, model):
     return note1, note2, note3
 
 
-def make_anki_deck(filename: str):
+def make_anki_deck(filename: str, deck: str = "Mandarin World - Level 2 - A"):
     """
     Generate unique IDs:
         import random; random.randrange(1 << 30, 1 << 31)
     """
-    deck = genanki.Deck(1963098631, "Mandarin World - Level 2 - A")
+    deck_id_lookup = {
+        "Mandarin World - Level 2 - A": 1963098631,
+        "Mando John": 1101970412,
+    }
+    if deck not in deck_id_lookup:
+        raise RuntimeError(
+            f"Deck `{deck}` not found in deck_id_lookup. "
+            "Please run the following to generate an ID:"
+            "\n`import random; random.randrange(1 << 30, 1 << 31)`",
+        )
+    deck_id = deck_id_lookup[deck]
+    deck = genanki.Deck(deck_id, deck)
     # deck = genanki.Deck(1876232028, "Test1")  # noqa: E800
     model = get_model()
 
