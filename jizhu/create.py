@@ -13,6 +13,7 @@ import typer
 from google.cloud import translate_v2 as translate
 from joblib import Memory
 from pypinyin import pinyin
+from tqdm import tqdm
 
 ROOT = Path(".")
 cachedir = ROOT / ".cache"
@@ -73,6 +74,7 @@ def make_anki_deck(filename: str, deck: str = "Mandarin World - Level 2 - A"):
         import random; random.randrange(1 << 30, 1 << 31)
     """
     deck_id_lookup = {
+        "Mandarin World - Level 1 - A": 1219710657,
         "Mandarin World - Level 2 - A": 1963098631,
         "Mando John": 1101970412,
     }
@@ -88,7 +90,7 @@ def make_anki_deck(filename: str, deck: str = "Mandarin World - Level 2 - A"):
     model = get_model()
 
     df = pd.read_excel(ROOT / "data" / "raw" / filename, sheet_name="Sheet1").dropna(subset="Hanzi")
-    for i, row in df.iterrows():
+    for i, row in tqdm(df.iterrows(), total=len(df)):
         hanzi = row["Hanzi"]
         if pd.isna(row["Pinyin"]):
             df.loc[i, "Pinyin"] = translate_to_english(hanzi)["pinyin"]
